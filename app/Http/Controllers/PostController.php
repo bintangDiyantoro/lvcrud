@@ -25,7 +25,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('posts.create');
     }
 
     /**
@@ -36,7 +36,15 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // return $request->all();
+        $this->validate($request, [
+            'title' => 'required|min:5',
+            'body' => 'required|min:10'
+        ]);
+
+        Post::create($request->all());
+
+        return redirect()->route('index');
     }
 
     /**
