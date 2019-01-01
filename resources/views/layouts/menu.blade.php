@@ -1,1 +1,1 @@
-<a href="">Create Post</a>
+<a href="{{route('create')}}">Create Post</a>
