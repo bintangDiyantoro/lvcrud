@@ -15,7 +15,7 @@ Create Post
     </ul>
 @endif
 
-<form action="{{route('store')}}" method="post">
+<form action="{{route('post.store')}}" method="post">
     {{csrf_field()}}
     <input type="text" name="title" placeholder="title" value="{{ old('title') }}"><br><br>
     <textarea name="body" placeholder="body" cols="30" rows="10">{{ old('body') }}</textarea><br><br>

@@ -1,1 +1,1 @@
-<a href="{{route('create')}}">Create Post</a>
+ <a href="{{route('post.index')}}">Home</a> | <a href="{{route('post.create')}}">Create Post</a>

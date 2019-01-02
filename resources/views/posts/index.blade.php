@@ -10,7 +10,7 @@ Post Page
         <ul>
         @foreach($posts as $post)
         <li>
-        <a href="">{{$post->title}}</a> 
+        <a href="{{ route('post.show', $post->id) }}">{{$post->title}}</a> 
         </li>
             
         @endforeach
