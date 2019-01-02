@@ -11,12 +11,13 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    // return view('welcome');
+    return redirect()->route('post.index');
+});
 
 Route::fallback(function(){
     return "<h1>The page is broken or currently unavailable</h1>";
 });
 
-Route::resource('/', 'PostController');
+Route::resource('/post', 'PostController');

@@ -55,7 +55,8 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        $post = Post::findOrFail($id);
+        return view('posts.show', compact('post'));
     }
 
     /**
@@ -66,7 +67,8 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = Post::findOrFail($id);
+        return view('posts.edit', compact('post'));
     }
 
     /**
@@ -78,7 +80,16 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // return $request->all();
+        $this->validate($request, [
+            'title' => 'required|min:5',
+            'body' => 'required|min:10'
+        ]);
+
+        $post = Post::findOrFail($id);
+        $post->update($request->all());
+
+        return redirect()->route('post.index');
     }
 
     /**
